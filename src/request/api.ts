@@ -1,4 +1,5 @@
-const root = ''
+const root = 'http://pieceland.hzchainup.com'
+// const root = ''
 
 export const API = {
   sendCode: root + '/potato_api/user/verification_code',

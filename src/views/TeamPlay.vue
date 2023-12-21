@@ -120,6 +120,7 @@ async function getCountInfo() {
 // 	// }
 // }
 
+const jackpot = ref(0)
 const countDownTime = ref('')
 
 async function getSeasonStatus() {
@@ -136,6 +137,7 @@ async function getSeasonStatus() {
           case 4: activityStatus.value = ACTIVITY_STATUS.BATTLE_END; break;
         }
         countDownTime.value = innerData.end_time
+        jackpot.value = innerData.jackpot
       } else {
         showDialog({title: '提示', message: data.data?.errmsg || '服务器错误'})
       }
@@ -179,7 +181,7 @@ getSeasonStatus()
       <TeamModule
         :status="activityStatus"
         :manure="countInfo?.manure?.count || 0"
-        :jackpot="0"
+        :jackpot="jackpot"
         :countDownTime="countDownTime"
         @refresh="handleRefresh">
       </TeamModule>

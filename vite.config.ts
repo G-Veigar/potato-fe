@@ -19,7 +19,7 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      '/potato_api': 'http://test.piecelandpotato.xyz',
+      '/potato_api': 'http://pieceland.hzchainup.com',
     }
   }
 })

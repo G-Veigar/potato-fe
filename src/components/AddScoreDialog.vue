@@ -10,9 +10,9 @@ defineProps<{
 const emits = defineEmits(['update:show', 'refresh'])
 
 const POWER_STATUS = {
-  LOADING: '补充体力中...',
-  SUCCESS: '补充成功！',
-  FAIL: '补充失败！'
+  LOADING: '投入中...',
+  SUCCESS: '投入成功！',
+  FAIL: '投入失败！'
 }
 
 const powerStatus = ref(POWER_STATUS.LOADING)
