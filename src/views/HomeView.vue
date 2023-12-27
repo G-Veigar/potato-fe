@@ -109,7 +109,7 @@ onMounted(() => {
     <!-- 登录 -->
     <div class="login-wrapper">
       <div class="username">
-        <div class="input-label username-label">用户名：</div>
+        <div class="input-label username-label">手机号：</div>
         <input type="text" v-model.trim="username" autofocus>
       </div>
       <div class="msgcode">

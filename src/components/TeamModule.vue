@@ -192,7 +192,7 @@ getTeamList()
         <div class="title">{{ countDownTitle }}</div>
         <van-count-down class="info-data" :time="time" format="HH时mm分ss秒" v-if="time && status !== 'NOT_BEGAIN'" @finish="refresh"/>
       </div>
-      <div class="info-right" v-if="status === 'TEAM_BATTLE'">
+      <div class="info-right" v-if="status === 'TEAM_BATTLE' || status === 'BATTLE_END'">
         <div class="title">奖池规模</div>
         <div class="info-data">{{ jackpot }} 肥料</div>
       </div>
@@ -213,6 +213,10 @@ getTeamList()
         <div class="team-select">
           <template v-if="status === 'TEAM_BATTLE'">
             <button v-if="item.id === joinTeamId && !championTeam" class="common-btn add-score-btn" @click="addScore(item.name)">投入</button>
+            <span class="status-text" v-if="item.status === 2">淘汰</span>
+            <span class="status-text win" v-if="item.id === championTeam">获胜</span>
+          </template>
+          <template v-else-if="status === 'BATTLE_END'">
             <span class="status-text" v-if="item.status === 2">淘汰</span>
             <span class="status-text win" v-if="item.id === championTeam">获胜</span>
           </template>

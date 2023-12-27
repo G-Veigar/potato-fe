@@ -37,6 +37,7 @@ async function usePower(id: string) {
           powerStatus.value = POWER_STATUS.FAIL
         }, 1000)
       }
+      emits('update:show', false)
       emits('refresh')
       setTimeout(() => {
         powerStatusShow.value = false

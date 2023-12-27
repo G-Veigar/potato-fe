@@ -7,7 +7,7 @@ export const API = {
   mintInfo: root + '/potato_api/mint/info',
   assetCount: root + '/potato_api/pkg/count',
   supplyPower: root + '/potato_api/pkg/supply_power',
-  myRecords: root + 'potato_api/user/fight_records',
+  myRecords: root + '/potato_api/user/fight_records',
   fightRank: root + '/potato_api/fight_board',
   takeOut: root + '/potato_api/user/fight_withdraw',
   useInfo: root + '/potato_api/user/info',

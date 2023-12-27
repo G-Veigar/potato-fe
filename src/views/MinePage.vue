@@ -51,7 +51,10 @@ async function getRankList() {
 
 const userInfo:Ref<any> = ref({})
 const myCount = computed(() => {
-  return userInfo.value.total_count || 0
+  return userInfo.value.total_reward || 0
+})
+const canTakeCount = computed(() => {
+  return Math.floor(myCount.value)
 })
 
 async function getUserInfo() {
@@ -115,7 +118,7 @@ getRankList()
             <div class="rank-list-row" v-for="(item, index) in rankList" :key="item.id">
               <div class="rank-index">{{index + 1}}</div>
               <div class="user">{{item.phone}}</div>
-              <div class="score">{{item.total_count}}</div>
+              <div class="score">{{item.total_reward}}</div>
             </div>
           </div>
         </div>
@@ -125,7 +128,7 @@ getRankList()
         <button class="common-btn battle-btn" @click="router.push('/team')">参与对抗</button>
       </div>
     </div>
-    <TakeOutDialog v-model:show="takeOutDialogShow" :take-out-count="myCount" @refresh="getUserInfo"></TakeOutDialog>
+    <TakeOutDialog v-model:show="takeOutDialogShow" :take-out-count="canTakeCount" @refresh="getUserInfo"></TakeOutDialog>
   </div>
 </template>
 
@@ -153,6 +156,7 @@ getRankList()
   .take-out-btn {
     width: 60px;
     height: 40px;
+    font-size: 12px;
     &[disabled] {
       filter: grayscale(80);
     }
@@ -178,14 +182,50 @@ getRankList()
 .record-list {
   .record-list-row {
     display: flex;
-    justify-content: space-between;
+    text-align: center;
+    width: 100%;
+  }
+
+  .season {
+    width: 19%;
+    flex: none;
+  }
+
+  .score {
+    width: 27%;
+    flex: none;
+  }
+
+  .my-win {
+    width: 27%;
+    flex: none;
+  }
+
+  .leader-award {
+    width: 27%;
+    flex: none;
   }
 }
 
 .rank-list {
   .rank-list-row {
     display: flex;
-    justify-content: space-between;
+    text-align: center;
+  }
+
+  .season {
+    width: 20%;
+    flex: none;
+  }
+
+  .user {
+    width: 55%;
+    flex: none;
+  }
+
+  .score {
+    width: 25%;
+    flex: none;
   }
 }
 

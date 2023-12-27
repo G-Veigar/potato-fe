@@ -115,8 +115,8 @@ async function addScore() {
         margin-bottom: 10px;
       }
       .value {
-        height: 20px;
-        line-height: 20px;
+        height: 26px;
+        line-height: 26px;
       }
     }
 
@@ -126,8 +126,8 @@ async function addScore() {
       align-items: center;
       input {
         color: #000;
-        width: 24px;
-        height: 20px;
+        width: 30px;
+        height: 26px;
         text-align: center;
       }
     }

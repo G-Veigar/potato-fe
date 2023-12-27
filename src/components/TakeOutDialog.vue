@@ -33,6 +33,7 @@ async function takeOut() {
           powerStatus.value = POWER_STATUS.FAIL
         }, 1000)
       }
+      emits('update:show', false)
       emits('refresh')
       setTimeout(() => {
         powerStatusShow.value = false
@@ -54,7 +55,7 @@ const powerStatusShow = ref(false)
       <div class="dialog-title">可提取</div>
       <div class="take-out-num">{{ takeOutCount }}</div>
       <div class="btn-wrapper">
-        <button class="common-btn confirm-btn" @click="takeOut">投入</button>
+        <button class="common-btn confirm-btn" @click="takeOut">提取</button>
         <button class="common-btn cancel-btn" @click="$emit('update:show', false)">取消</button>
       </div>
     </div>
