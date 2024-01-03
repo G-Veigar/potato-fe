@@ -117,7 +117,7 @@ onMounted(() => {
         <input type="number" v-model.trim="msgCode">
         <button class="get-code-btn" @click="sendCode">{{ codeSendInternal > 0 ? `${codeSendInternal}秒` : '获取' }}</button>
       </div>
-      <button class="login-btn" @click="login">查询</button>
+      <button class="login-btn" @click="login">登录</button>
     </div>
     <!-- logo -->
     <div class="logo"></div>

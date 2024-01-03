@@ -9,6 +9,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     AddPowerDialog: typeof import('./src/components/AddPowerDialog.vue')['default']
     AddScoreDialog: typeof import('./src/components/AddScoreDialog.vue')['default']
+    CommonDialog: typeof import('./src/components/CommonDialog.vue')['default']
     IconCommunity: typeof import('./src/components/icons/IconCommunity.vue')['default']
     IconDocumentation: typeof import('./src/components/icons/IconDocumentation.vue')['default']
     IconEcosystem: typeof import('./src/components/icons/IconEcosystem.vue')['default']

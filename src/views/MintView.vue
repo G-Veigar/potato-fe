@@ -4,6 +4,7 @@ import { useRouter } from 'vue-router'
 import AddPowerDialog from '@/components/AddPowerDialog.vue';
 import { request, API } from '../request/index.js'
 import { showDialog } from 'vant';
+import CommonDialog from '@/components/CommonDialog.vue'
 
 const router = useRouter()
 
@@ -45,7 +46,7 @@ const dataList = ref([
     value: 0
   },
   {
-    label: '昨日剩余体力',
+    label: '剩余体力',
     value: 0
   },
   {
@@ -125,8 +126,8 @@ async function getMintInfo() {
             value: innerData.last_mint_manure_count
           },
           {
-            label: '昨日剩余体力',
-            value: innerData.last_remain_strength
+            label: '剩余体力',
+            value: innerData.strength
           },
           {
             label: '待空投肥料',
@@ -227,10 +228,12 @@ function addPower() {
 }
 
 const addPowerDialogShow = ref(false);
+const commonDialogShow = ref(false)
 
 // 参与对抗 - 弹框
 function openGame() {
-  router.push('/team')
+  commonDialogShow.value = true
+  // router.push('/team')
 }
 </script>
 
@@ -255,7 +258,8 @@ function openGame() {
     <AddPowerDialog
       :powerList="powerList"
       v-model:show="addPowerDialogShow"
-      @refresh="getPowerList"></AddPowerDialog>
+      @refresh="getMintInfo"></AddPowerDialog>
+    <CommonDialog v-model:show="commonDialogShow"></CommonDialog>
   </div>
 </template>
 

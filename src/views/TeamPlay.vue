@@ -198,7 +198,7 @@ getSeasonStatus()
       <button class="common-btn mint-btn" @click="router.push('/mint')">去挖矿</button>
       <div class="bottom-tip">
         <div class="tip-text">
-          投票说明：持有船长或恶龙可参与相应阵营的队长竞选。用户每持有1份肥料藏品，拥有1次投票权。投票时间为3天，前四名将成为四个队伍的队长。若有并列票数，排名将按持有肥料数量进行排序，持有量多靠前，若数量一直，则随机排序。
+          说明：第一个加入战队的持有船长/恶龙藏品的用户自动成为该战队的队长，获胜后享受最终奖池10%的加成收益，同时与队员按投入比例瓜分最终奖池。
         </div>
       </div>
     </div>

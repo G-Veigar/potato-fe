@@ -4,6 +4,7 @@ import { useRouter } from 'vue-router'
 import { request, API } from '../request/index.js'
 import TakeOutDialog from '@/components/TakeOutDialog.vue'
 import { showDialog } from 'vant';
+import CommonDialog from '@/components/CommonDialog.vue'
 
 const router = useRouter()
 
@@ -29,7 +30,17 @@ async function getMyRecords() {
   }
 }
 
-const rankList:Ref<any> = ref([])
+// const rankList:Ref<any> = ref([])
+const rankList:Ref<any> = ref([
+  {
+    phone: '18722503732',
+    total_reward: 12
+  },
+  {
+    phone: '18722502232',
+    total_reward: 1
+  }
+])
 
 async function getRankList() {
   try {
@@ -76,6 +87,12 @@ async function getUserInfo() {
 }
 
 const takeOutDialogShow = ref(false)
+const commonDialogShow = ref(false)
+
+function handleBattle() {
+  commonDialogShow.value = true
+  // router.push('/team')
+}
 
 getUserInfo()
 getMyRecords()
@@ -111,7 +128,7 @@ getRankList()
           </div>
           <div class="rank-list" v-show="tabName === 'rank'">
             <div class="rank-list-row">
-              <div class="season">排名</div>
+              <div class="rank-index">排名</div>
               <div class="user">用户</div>
               <div class="score">获得战力</div>
             </div>
@@ -125,10 +142,11 @@ getRankList()
       </div>
       <div class="btn-group">
         <button class="common-btn mint-btn" @click="router.push('/mint')">去挖矿</button>
-        <button class="common-btn battle-btn" @click="router.push('/team')">参与对抗</button>
+        <button class="common-btn battle-btn" @click="handleBattle">参与对抗</button>
       </div>
     </div>
     <TakeOutDialog v-model:show="takeOutDialogShow" :take-out-count="canTakeCount" @refresh="getUserInfo"></TakeOutDialog>
+    <CommonDialog v-model:show="commonDialogShow"></CommonDialog>
   </div>
 </template>
 
@@ -213,7 +231,7 @@ getRankList()
     text-align: center;
   }
 
-  .season {
+  .rank-index {
     width: 20%;
     flex: none;
   }
